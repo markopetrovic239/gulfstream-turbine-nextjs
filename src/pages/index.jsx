@@ -2,7 +2,7 @@ import useStore from '@/helpers/store'
 import dynamic from 'next/dynamic'
 import Go from '@/components/dom/go'
 
-const Sphere = dynamic(() => import('@/components/canvas/Sphere'), {
+const TurbineScene = dynamic(() => import('@/components/canvas/TurbineScene'), {
   ssr: false,
 })
 
@@ -10,7 +10,7 @@ const Page = ({ title }) => {
   useStore.setState({ title })
   return (
     <>
-      <Sphere r3f />
+      <TurbineScene r3f />
       <Go />
     </>
   )
@@ -21,7 +21,7 @@ export default Page
 export async function getStaticProps() {
   return {
     props: {
-      title: 'Sphere',
+      title: 'TurbineScene',
     },
   }
 }

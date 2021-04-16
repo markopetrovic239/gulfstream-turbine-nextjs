@@ -4,8 +4,10 @@ import { useEffect, Children } from 'react'
 import Header from '../config'
 import dynamic from 'next/dynamic'
 import Dom from '@/components/layout/_dom'
-
+import { Transition } from 'react-spring'
+import { a, config } from '@react-spring/three'
 import '@/styles/index.css'
+import CanvasTransition from '../examples/canvas/canvas_transition'
 
 let LCanvas = null
 if (process.env.NODE_ENV === 'production') {
@@ -21,6 +23,7 @@ function SplitApp({ canvas, dom }) {
     <>
       <Header />
       {dom && <Dom dom={dom} />}
+
       <LCanvas>{canvas && <group>{canvas}</group>}</LCanvas>
     </>
   )
